@@ -13,6 +13,36 @@ public class Libro {
         this.autor = autor;
     }
 
+    // Getters
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public int getCantidadPaginas() {
+        return cantidadPaginas;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    // Setters
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setCantidadPaginas(int cantidadPaginas) {
+        this.cantidadPaginas = cantidadPaginas;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
     public void mostrarDatos() {
         System.out.println("ISBN: " + isbn);
         System.out.println("Título: " + titulo);
