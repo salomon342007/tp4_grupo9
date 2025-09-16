@@ -21,7 +21,7 @@ public class ejercicio5 {
             System.out.println("5 – Salir");
             System.out.print("Ingrese una opción: ");
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
