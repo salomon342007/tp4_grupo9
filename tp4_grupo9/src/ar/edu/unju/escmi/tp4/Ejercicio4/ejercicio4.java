@@ -13,16 +13,17 @@ public class ejercicio4 {
             System.out.println("\n--- MENÚ ---");
             System.out.println("1 – Crear cliente");
             System.out.println("2 – Mostrar los datos de un cliente");
-            System.out.println("3 – Mostrar todos los clientes");
+            System.out.println("3 – Buscar cliente por DNI");
             System.out.println("4 – Mostrar todos los clientes ocasionales y la cantidad");
             System.out.println("5 – Mostrar todos los clientes frecuentes y la cantidad");
             System.out.println("6 – Salir");
             System.out.print("Ingrese una opción: ");
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
+                    
                     System.out.print("Ingrese DNI: ");
                     String dni = scanner.nextLine();
                     System.out.print("Ingrese nombre: ");
@@ -32,52 +33,46 @@ public class ejercicio4 {
                         System.out.print("Ingrese tipo de cliente (ocasional/frecuente): ");
                         tipo = scanner.nextLine().toLowerCase();
                     } while (!tipo.equals("ocasional") && !tipo.equals("frecuente"));
-                    clientes.add(new Cliente(dni, nombre, tipo));
+                    Cliente nuevoCliente = new Cliente(dni, nombre, tipo);
+                    clientes.add(nuevoCliente);
                     System.out.println("Cliente creado exitosamente.");
                     break;
                 case 2:
-                    System.out.print("Ingrese DNI del cliente a buscar: ");
-                    String dniBuscar = scanner.nextLine();
-                    boolean encontrado = false;
-                    for (Cliente c : clientes) {
-                        if (c.getDni().equals(dniBuscar)) {
-                            System.out.println(c);
-                            encontrado = true;
-                            break;
-                        }
-                    }
-                    if (!encontrado) {
-                        System.out.println("Cliente no encontrado.");
-                    }
-                    break;
-                case 3:
+                   
                     if (clientes.isEmpty()) {
                         System.out.println("No hay clientes registrados.");
                     } else {
-                        for (Cliente c : clientes) {
-                            System.out.println(c);
-                        }
+                        clientes.stream().forEach(c -> System.out.println(c));
+                    }
+                    break;
+                case 3:
+                   
+                    System.out.print("Ingrese DNI del cliente a buscar: ");
+                    String dniBuscar = scanner.nextLine();
+                    boolean encontrado = clientes.stream()
+                        .filter(c -> c.getDni().equals(dniBuscar))
+                        .peek(c -> System.out.println(c))
+                        .findFirst()
+                        .isPresent();
+                    if (!encontrado) {
+                        System.out.println("No se encontró el dni");
                     }
                     break;
                 case 4:
-                    int contOcasional = 0;
-                    for (Cliente c : clientes) {
-                        if (c.getTipoCliente().equalsIgnoreCase("ocasional")) {
-                            System.out.println(c);
-                            contOcasional++;
-                        }
-                    }
-                    System.out.println("Cantidad de clientes ocasionales: " + contOcasional);
+                    
+                    long cantidadOcasionales = clientes.stream()
+                        .filter(c -> c.getTipoCliente().equalsIgnoreCase("ocasional"))
+                        .peek(c -> System.out.println(c))
+                        .count();
+                    System.out.println("Cantidad de clientes ocasionales: " + cantidadOcasionales);
                     break;
                 case 5:
-                    int contFrecuente = 0;
-                    for (Cliente c : clientes) {
-                        if (c.getTipoCliente().equalsIgnoreCase("frecuente")) {
-                            System.out.println(c);
-                            contFrecuente++;
-                        }
-                    }
-                    System.out.println("Cantidad de clientes frecuentes: " + contFrecuente);
+                    
+                    long cantidadFrecuentes = clientes.stream()
+                        .filter(c -> c.getTipoCliente().equalsIgnoreCase("frecuente"))
+                        .peek(c -> System.out.println(c))
+                        .count();
+                    System.out.println("Cantidad de clientes frecuentes: " + cantidadFrecuentes);
                     break;
                 case 6:
                     System.out.println("Saliendo del programa...");
