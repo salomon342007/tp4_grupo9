@@ -3,7 +3,7 @@ package ar.edu.unju.escmi.tp4.Ejercicio4;
 public class Cliente {
     private String dni;
     private String nombre;
-    private String tipoCliente; // "ocasional" o "frecuente"
+    private String tipoCliente; 
 
     public Cliente(String dni, String nombre, String tipoCliente) {
         this.dni = dni;

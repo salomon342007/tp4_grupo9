@@ -2,7 +2,6 @@ package ar.edu.unju.escmi.tp4.Ejercicio6;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class ejercicio6 {
@@ -22,25 +21,24 @@ public class ejercicio6 {
             System.out.println("7 – Salir.");
             System.out.print("Ingrese una opción: ");
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
-                    // Alta de Libro
+                    Libro nuevoLibro = new Libro();
                     System.out.print("Ingrese ISBN: ");
-                    String isbn = scanner.nextLine();
+                    nuevoLibro.setIsbn(scanner.nextLine());
                     System.out.print("Ingrese título: ");
-                    String titulo = scanner.nextLine();
+                    nuevoLibro.setTitulo(scanner.nextLine());
                     System.out.print("Ingrese cantidad de páginas: ");
-                    int paginas = scanner.nextInt();
+                    nuevoLibro.setCantidadPaginas(scanner.nextInt());
                     scanner.nextLine();
                     System.out.print("Ingrese autor: ");
-                    String autor = scanner.nextLine();
-                    libros.add(new Libro(isbn, titulo, paginas, autor));
+                    nuevoLibro.setAutor(scanner.nextLine());
+                    libros.add(nuevoLibro);
                     System.out.println("Libro agregado correctamente.\n");
                     break;
                 case 2:
-                    // Mostrar libros
                     if (libros.isEmpty()) {
                         System.out.println("No hay libros cargados.\n");
                     } else {
@@ -50,7 +48,6 @@ public class ejercicio6 {
                     }
                     break;
                 case 3:
-                    // Buscar y mostrar un libro
                     System.out.print("Ingrese ISBN del libro a buscar: ");
                     String isbnBuscar = scanner.nextLine();
                     boolean encontrado = false;
@@ -66,17 +63,17 @@ public class ejercicio6 {
                     }
                     break;
                 case 4:
-                    // Ordenar libros por título
-                    Collections.sort(libros, Comparator.comparing(Libro::getTitulo));
+                    Collections.sort(libros);
                     System.out.println("Libros ordenados por título.\n");
                     break;
                 case 5:
-                    // Modificar datos de un libro
                     System.out.print("Ingrese ISBN del libro a modificar: ");
                     String isbnModificar = scanner.nextLine();
                     boolean modificado = false;
                     for (Libro libro : libros) {
                         if (libro.getIsbn().equals(isbnModificar)) {
+                            System.out.println("Datos actuales del libro:");
+                            libro.mostrarDatos();
                             System.out.print("Nuevo título: ");
                             libro.setTitulo(scanner.nextLine());
                             System.out.print("Nueva cantidad de páginas: ");
@@ -94,13 +91,18 @@ public class ejercicio6 {
                     }
                     break;
                 case 6:
-                    // Eliminar un libro
                     System.out.print("Ingrese ISBN del libro a eliminar: ");
                     String isbnEliminar = scanner.nextLine();
-                    boolean eliminado = libros.removeIf(libro -> libro.getIsbn().equals(isbnEliminar));
-                    if (eliminado) {
-                        System.out.println("Libro eliminado correctamente.\n");
-                    } else {
+                    boolean eliminado = false;
+                    for (int i = 0; i < libros.size(); i++) {
+                        if (libros.get(i).getIsbn().equals(isbnEliminar)) {
+                            libros.remove(i);
+                            eliminado = true;
+                            System.out.println("Libro eliminado correctamente.\n");
+                            break;
+                        }
+                    }
+                    if (!eliminado) {
                         System.out.println("Libro no encontrado.\n");
                     }
                     break;
