@@ -8,6 +8,7 @@ public class Ejercicio2 {
         HashMap<String, Empleado> empleados = new HashMap<>();
         int opcion;
 
+        
         do {
             System.out.println("\nMenú de opciones:");
             System.out.println("1)  Alta de empleado.");
