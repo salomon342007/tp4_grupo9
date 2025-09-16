@@ -2,7 +2,7 @@ package ar.edu.unju.escmi.tp4.Ejercicio2;
 
 import java.util.*;
 
-public class ejercicio2 {
+public class Ejercicio2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         HashMap<String, Empleado> empleados = new HashMap<>();
@@ -10,11 +10,11 @@ public class ejercicio2 {
 
         do {
             System.out.println("\nMenú de opciones:");
-            System.out.println("1 – Alta de empleado.");
-            System.out.println("2 – Mostrar empleados.");
-            System.out.println("3 – Eliminar empleado.");
-            System.out.println("4 – Consultar los datos de un empleado.");
-            System.out.println("5 – Salir.");
+            System.out.println("1)  Alta de empleado.");
+            System.out.println("2) Mostrar empleados.");
+            System.out.println("3) Eliminar empleado.");
+            System.out.println("4) Consultar los datos de un empleado.");
+            System.out.println("5) Salir.");
             System.out.print("Ingrese una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar buffer
