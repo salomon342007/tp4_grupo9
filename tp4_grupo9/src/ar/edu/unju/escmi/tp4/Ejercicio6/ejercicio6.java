@@ -10,6 +10,7 @@ public class Ejercicio6 {
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
+        
         do {
             System.out.println("----- MENÚ DE OPCIONES -----");
             System.out.println("1 – Alta de Libro.");
