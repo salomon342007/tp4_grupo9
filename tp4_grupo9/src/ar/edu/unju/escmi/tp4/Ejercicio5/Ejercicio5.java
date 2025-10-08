@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class ejercicio5 {
+public class Ejercicio5 {
     // Punto de entrada del programa: muestra un menú para gestionar productos
     public static void main(String[] args) {
         // Mapa ordenado por clave que almacena los productos (clave entera -> Producto)
