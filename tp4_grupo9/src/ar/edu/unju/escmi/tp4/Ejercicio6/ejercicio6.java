@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * Ejercicio6 - Gestión de libros usando ArrayList.
+ * Permite dar de alta, mostrar, buscar, ordenar, modificar y eliminar libros.
+ */
 public class Ejercicio6 {
     public static void main(String[] args) {
+        // Lista para almacenar los libros
         ArrayList<Libro> libros = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
-        
+        // Menú principal del programa
         do {
             System.out.println("----- MENÚ DE OPCIONES -----");
             System.out.println("1 – Alta de Libro.");
@@ -26,6 +31,7 @@ public class Ejercicio6 {
 
             switch (opcion) {
                 case 1:
+                    // Alta de un nuevo libro
                     Libro nuevoLibro = new Libro();
                     System.out.print("Ingrese ISBN: ");
                     nuevoLibro.setIsbn(scanner.nextLine());
@@ -40,6 +46,7 @@ public class Ejercicio6 {
                     System.out.println("Libro agregado correctamente.\n");
                     break;
                 case 2:
+                    // Mostrar todos los libros cargados
                     if (libros.isEmpty()) {
                         System.out.println("No hay libros cargados.\n");
                     } else {
@@ -49,6 +56,7 @@ public class Ejercicio6 {
                     }
                     break;
                 case 3:
+                    // Buscar y mostrar un libro por ISBN
                     System.out.print("Ingrese ISBN del libro a buscar: ");
                     String isbnBuscar = scanner.nextLine();
                     boolean encontrado = false;
@@ -64,10 +72,12 @@ public class Ejercicio6 {
                     }
                     break;
                 case 4:
+                    // Ordenar libros por título (usando Comparable)
                     Collections.sort(libros);
                     System.out.println("Libros ordenados por título.\n");
                     break;
                 case 5:
+                    // Modificar los datos de un libro existente
                     System.out.print("Ingrese ISBN del libro a modificar: ");
                     String isbnModificar = scanner.nextLine();
                     boolean modificado = false;
@@ -92,6 +102,7 @@ public class Ejercicio6 {
                     }
                     break;
                 case 6:
+                    // Eliminar un libro por ISBN
                     System.out.print("Ingrese ISBN del libro a eliminar: ");
                     String isbnEliminar = scanner.nextLine();
                     boolean eliminado = false;
@@ -108,9 +119,11 @@ public class Ejercicio6 {
                     }
                     break;
                 case 7:
+                    // Salir del programa
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
+                    // Opción inválida
                     System.out.println("Opción inválida.\n");
             }
         } while (opcion != 7);
