@@ -3,7 +3,7 @@ package ar.edu.unju.escmi.tp4.Ejercicio4;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class ejercicio4 {
+public class Ejercicio4 {
     public static void main(String[] args) {
         HashSet<Cliente> clientes = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
