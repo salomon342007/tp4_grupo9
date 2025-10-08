@@ -53,7 +53,7 @@ public class ejercicio5 {
                     System.out.println("Producto agregado exitosamente.");
                     break;
                 case 2:
-                    // Mostrar todos los productos registrados en el TreeMap
+                    // Mostrar todos los productos registrados en el TreeMap.
                     if (productos.isEmpty()) {
                         System.out.println("No hay productos registrados.");
                     } else {
