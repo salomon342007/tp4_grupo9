@@ -3,7 +3,7 @@ package ar.edu.unju.escmi.tp4.Ejercicio1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ejercicio1 {
+public class Ejercicio1 {
     public static void main(String[] args) {
         ArrayList<Jugador> jugadores = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
