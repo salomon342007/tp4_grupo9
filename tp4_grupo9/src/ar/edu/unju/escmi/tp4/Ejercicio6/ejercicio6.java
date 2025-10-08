@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ejercicio6 {
+public class Ejercicio6 {
     public static void main(String[] args) {
         ArrayList<Libro> libros = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
+        
         do {
             System.out.println("----- MENÚ DE OPCIONES -----");
             System.out.println("1 – Alta de Libro.");
@@ -21,7 +22,7 @@ public class ejercicio6 {
             System.out.println("7 – Salir.");
             System.out.print("Ingrese una opción: ");
             opcion = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
